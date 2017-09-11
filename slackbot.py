@@ -1,4 +1,5 @@
 from globalconsts import *
+from slackclient import SlackClient
 import api
 import json
 
@@ -10,11 +11,11 @@ HELP_COMMAND = "help"
 OPTIONS = {	ONCALL_COMMAND: 'The people you need to call when you have an issue', 
 			HELP_COMMAND: 'What you are looking at now'}
 
-class Bot:
+class Bot(object):
 
-	def __init__(self, connection, bot_id):
-		self.AT_BOT = "<@" + bot_id + ">"
-		self.connection = connection
+	def __init__(self):
+		self.AT_BOT = "<@" + BOT_ID + ">"
+		self.client = SlackClient(SLACK_BOT_TOKEN)
 
 
 	def handle_command(self, command, channel):

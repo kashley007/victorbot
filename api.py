@@ -11,11 +11,6 @@ import datetime as dt
 	response are also handled here
 """
 
-def slack_connect(slack_token):
-	connection = SlackClient(slack_token)
-	return connection
-
-
 def json_timestamp_format(item):
 	return str(item).split('T')[0], str(item).split('T')[1]
 
