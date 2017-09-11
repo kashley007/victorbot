@@ -33,10 +33,8 @@ class Bot(object):
 		else:
 			response = "Don't waste my time. Use *" + HELP_COMMAND + \
 						"* to see what I feel like talking about"
+		self.client.api_call("chat.postMessage", channel=channel,text=response, as_user=True)
 		
-		self.connection.api_call("chat.postMessage", channel=channel,text=response, as_user=True)
-
-
 	def parse_slack_output(self, slack_rtm_output):
 		""" Listens for @BOT_ID in slack channel and sends command to the command handler"""
 		output_list = slack_rtm_output
